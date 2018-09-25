@@ -159,6 +159,16 @@
     </ClCompile>
     <ClCompile Include="stereo-matching-using-minimum-spanning-tree.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="cones_img_0.png" />
+    <Image Include="cones_img_1.png" />
+    <Image Include="teddy_img_0.png" />
+    <Image Include="teddy_img_1.png" />
+    <Image Include="tsukuba_img_0.png" />
+    <Image Include="tsukuba_img_1.png" />
+    <Image Include="venus_img_0.png" />
+    <Image Include="venus_img_1.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

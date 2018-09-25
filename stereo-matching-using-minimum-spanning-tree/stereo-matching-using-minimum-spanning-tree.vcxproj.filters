@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="资源文件\tsukuba">
+      <UniqueIdentifier>{94340a9a-2966-43df-8287-4ac456089f5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\cones">
+      <UniqueIdentifier>{14187f28-b697-4cdf-bb71-316573c4f9da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\teddy">
+      <UniqueIdentifier>{0bd8729a-b681-4123-9dfe-45385a3c9cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\venus">
+      <UniqueIdentifier>{b7a9c14c-1b58-4518-a93a-f7bd27cbe849}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -29,5 +41,31 @@
     <ClCompile Include="stereo-matching-using-minimum-spanning-tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="tsukuba_img_0.png">
+      <Filter>资源文件\tsukuba</Filter>
+    </Image>
+    <Image Include="tsukuba_img_1.png">
+      <Filter>资源文件\tsukuba</Filter>
+    </Image>
+    <Image Include="cones_img_0.png">
+      <Filter>资源文件\cones</Filter>
+    </Image>
+    <Image Include="cones_img_1.png">
+      <Filter>资源文件\cones</Filter>
+    </Image>
+    <Image Include="teddy_img_0.png">
+      <Filter>资源文件\teddy</Filter>
+    </Image>
+    <Image Include="teddy_img_1.png">
+      <Filter>资源文件\teddy</Filter>
+    </Image>
+    <Image Include="venus_img_0.png">
+      <Filter>资源文件\venus</Filter>
+    </Image>
+    <Image Include="venus_img_1.png">
+      <Filter>资源文件\venus</Filter>
+    </Image>
   </ItemGroup>
 </Project>
