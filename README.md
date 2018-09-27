@@ -1,6 +1,4 @@
-# Stereo Matching Using Minimum Spanning Tree
-
-## About Project
+# Stereo Matching Using Minimum Spanning Tree - About Project
 
 This project is about implement of stereo matching by minimum spanning tree (MST). And this project is one part of my graduation project.
 
