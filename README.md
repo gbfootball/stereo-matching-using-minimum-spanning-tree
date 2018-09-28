@@ -18,9 +18,5 @@ I can't use *LaTex* to write fumulas in *Github*, so I put some notes in my *[Yo
 
 During this project, I was reading a lot of papers about related domains and watching some documents in the Internet. Thanks a lot for these documents. And here are the links or references of them:
 
-$$
-a^3+b^4 = d^{10}
-$$
-
 - Papers
 - Documents
