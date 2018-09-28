@@ -1,4 +1,4 @@
-# Stereo Matching Using Minimum Spanning Tree - About Project
+# Stereo Matching Using Minimum Spanning Tree
 
 This project is about implement of stereo matching by minimum spanning tree (MST). Simultaneously, this project is one part of my graduation project.
 
@@ -17,6 +17,10 @@ I can't use *LaTex* to write fumulas in *Github*, so I put some notes in my *[Yo
 - [Part 9: Referenced Papers, Other Documents and Some Links (*Unfinished and The Link is Disabled*)](https://github.com/Tenvence)
 
 During this project, I was reading a lot of papers about related domains and watching some documents in the Internet. Thanks a lot for these documents. And here are the links or references of them:
+
+$$
+a^3+b^4 = d^{10}
+$$
 
 - Papers
 - Documents
