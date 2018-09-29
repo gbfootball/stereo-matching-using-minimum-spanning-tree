@@ -33,6 +33,15 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FourDirectionGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHeap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionFindSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -41,30 +50,39 @@
     <ClCompile Include="stereo-matching-using-minimum-spanning-tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="FourDirectionGraph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHeap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UnionFindSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="tsukuba_img_0.png">
-      <Filter>资源文件\tsukuba</Filter>
-    </Image>
-    <Image Include="tsukuba_img_1.png">
-      <Filter>资源文件\tsukuba</Filter>
-    </Image>
-    <Image Include="cones_img_0.png">
+    <Image Include="dataset\cones_img_0.png">
       <Filter>资源文件\cones</Filter>
     </Image>
-    <Image Include="cones_img_1.png">
+    <Image Include="dataset\cones_img_1.png">
       <Filter>资源文件\cones</Filter>
     </Image>
-    <Image Include="teddy_img_0.png">
+    <Image Include="dataset\teddy_img_0.png">
       <Filter>资源文件\teddy</Filter>
     </Image>
-    <Image Include="teddy_img_1.png">
+    <Image Include="dataset\teddy_img_1.png">
       <Filter>资源文件\teddy</Filter>
     </Image>
-    <Image Include="venus_img_0.png">
+    <Image Include="dataset\tsukuba_img_0.png">
+      <Filter>资源文件\tsukuba</Filter>
+    </Image>
+    <Image Include="dataset\tsukuba_img_1.png">
+      <Filter>资源文件\tsukuba</Filter>
+    </Image>
+    <Image Include="dataset\venus_img_0.png">
       <Filter>资源文件\venus</Filter>
     </Image>
-    <Image Include="venus_img_1.png">
+    <Image Include="dataset\venus_img_1.png">
       <Filter>资源文件\venus</Filter>
     </Image>
   </ItemGroup>

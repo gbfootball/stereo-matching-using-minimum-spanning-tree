@@ -1,7 +1,6 @@
 #include"stdafx.h"
 #include "FourDirectionGraph.h"
 
-
 FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	height_ = m.rows;
 	width_ = m.cols;
@@ -16,34 +15,25 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 		}
 	}
 
-	/*
-	 * Based on the paper "A Non-Local Cost Aggregation Method for Stereo Matching", 
-	 * the weight of a pair of neighboring pixels is absolute of value difference between two pixels.
-	 */
-	
+	// Based on the paper "A Non-Local Cost Aggregation Method for Stereo Matching", 
+	// the weight of a pair of neighboring pixels is absolute of value difference between two pixels.
+
 	for (int i = 0; i < height_; i++) {
 		for (int j = 0; j < width_; j++) {
 			// to the left direction
-			if (j != 0) {
-				graph_[i][j].weight[LEFT] = ABS(graph_[i][j].data - graph_[i][j - 1].data);
-			}
-
+			graph_[i][j].weight[LEFT] = j != 0 ? ABS(graph_[i][j].data - graph_[i][j - 1].data) : NONE_WEIGHT;
 			// to the right direction
-			if (j != width_ - 1) {
-				graph_[i][j].weight[RIGHT] = ABS(graph_[i][j].data - graph_[i][j + 1].data);
-			}
-
+			graph_[i][j].weight[RIGHT] = j != width_ - 1 ? ABS(graph_[i][j].data - graph_[i][j + 1].data) : NONE_WEIGHT;
 			// to the up direction
-			if (i != 0) {
-				graph_[i][j].weight[UP] = ABS(graph_[i][j].data - graph_[i + 1][j].data);
-			}
-
+			graph_[i][j].weight[UP] = i != 0 ? ABS(graph_[i][j].data - graph_[i + 1][j].data) : NONE_WEIGHT;
 			// to the down direction
-			if (i != 0) {
-				graph_[i][j].weight[DOWN] = ABS(graph_[i][j].data - graph_[i - 1][j].data);
-			}
+			graph_[i][j].weight[DOWN] = i != height_ - 1 ? ABS(graph_[i][j].data - graph_[i - 1][j].data) : NONE_WEIGHT;
 		}
 	}
+}
+
+void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(Tree& t) {
+
 }
 
 FourDirectionGraph::~FourDirectionGraph() {

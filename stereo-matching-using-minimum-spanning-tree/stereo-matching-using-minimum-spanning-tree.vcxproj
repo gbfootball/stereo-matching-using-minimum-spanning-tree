@@ -147,10 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FourDirectionGraph.h" />
+    <ClInclude Include="MinHeap.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UnionFindSet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FourDirectionGraph.cpp" />
+    <ClCompile Include="MinHeap.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -158,16 +163,17 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="stereo-matching-using-minimum-spanning-tree.cpp" />
+    <ClCompile Include="UnionFindSet.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="cones_img_0.png" />
-    <Image Include="cones_img_1.png" />
-    <Image Include="teddy_img_0.png" />
-    <Image Include="teddy_img_1.png" />
-    <Image Include="tsukuba_img_0.png" />
-    <Image Include="tsukuba_img_1.png" />
-    <Image Include="venus_img_0.png" />
-    <Image Include="venus_img_1.png" />
+    <Image Include="dataset\cones_img_0.png" />
+    <Image Include="dataset\cones_img_1.png" />
+    <Image Include="dataset\teddy_img_0.png" />
+    <Image Include="dataset\teddy_img_1.png" />
+    <Image Include="dataset\tsukuba_img_0.png" />
+    <Image Include="dataset\tsukuba_img_1.png" />
+    <Image Include="dataset\venus_img_0.png" />
+    <Image Include="dataset\venus_img_1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
