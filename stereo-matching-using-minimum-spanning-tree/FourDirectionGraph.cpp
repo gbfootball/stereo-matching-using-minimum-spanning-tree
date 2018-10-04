@@ -1,6 +1,14 @@
 #include"stdafx.h"
 #include "FourDirectionGraph.h"
 
+int FourDirectionGraph::getVerticesNumber() const {
+	return height_ * width_;
+}
+
+int FourDirectionGraph::getEdgesNumber() const {
+	return (height_ - 1) * width_ + (width_ - 1) * height_;
+}
+
 FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	height_ = m.rows;
 	width_ = m.cols;
@@ -33,6 +41,12 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 }
 
 void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(Tree& t) {
+	const int numVertex = getVerticesNumber();
+	const int numEdges = getEdgesNumber();
+
+	MinHeap heap(numEdges);
+	UnionFindSet ufSet(numVertex);
+
 
 }
 

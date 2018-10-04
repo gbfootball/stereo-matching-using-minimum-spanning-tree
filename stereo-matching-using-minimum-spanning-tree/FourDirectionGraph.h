@@ -5,6 +5,9 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+#include "MinHeap.h"
+#include "UnionFindSet.h"
+
 using namespace cv;
 using namespace std;
 
@@ -43,6 +46,8 @@ class FourDirectionGraph {
 	Vertex** graph_;
 	int height_;
 	int width_;
+	int getVerticesNumber() const;
+	int getEdgesNumber() const;
 
 public:
 	explicit FourDirectionGraph(Mat m);
