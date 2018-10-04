@@ -1,9 +1,26 @@
-#include "stdafx.h"
-#include "MinHeap.h"
+#ifndef MIN_HEAP_H
+#define MIN_HEAP_H
 
-void MinHeap::siftDown(const int start, const int m) const {
+template <class E>
+class MinHeap {
+	E* heap_;
+	int maxSize_;
+	int size_;
+
+	void siftDown(int start, int m) const;
+	void siftUp(int start) const;
+
+public:
+	explicit MinHeap(int size);
+	~MinHeap();
+	bool insert(E x);
+	bool remove(E& x);
+};
+
+template <class E>
+void MinHeap<E>::siftDown(const int start, const int m) const {
 	int i = start, j = 2 * i + 1; // j is the left child of i
-	const min_heap_type temp = heap_[i];
+	const E temp = heap_[i];
 
 	while (j <= m) {
 		if (j < m && heap_[j] > heap_[j + 1]) {
@@ -22,9 +39,10 @@ void MinHeap::siftDown(const int start, const int m) const {
 	heap_[i] = temp;
 }
 
-void MinHeap::siftUp(const int start) const {
+template <class E>
+void MinHeap<E>::siftUp(const int start) const {
 	int j = start, i = (j - 1) / 2;
-	const min_heap_type temp = heap_[j];
+	const E temp = heap_[j];
 
 	while (j < 0) {
 		if (heap_[i] <= temp) {
@@ -39,17 +57,20 @@ void MinHeap::siftUp(const int start) const {
 	heap_[j] = temp;
 }
 
-MinHeap::MinHeap(const int size) {
+template <class E>
+MinHeap<E>::MinHeap(const int size) {
 	maxSize_ = size;
-	heap_ = new min_heap_type[maxSize_];
+	heap_ = new E[maxSize_];
 	size_ = 0;
 }
 
-MinHeap::~MinHeap() {
+template <class E>
+MinHeap<E>::~MinHeap() {
 	delete heap_;
 }
 
-bool MinHeap::insert(min_heap_type x) {
+template <class E>
+bool MinHeap<E>::insert(E x) {
 	if (size_ == maxSize_) {
 		return false;
 	}
@@ -57,11 +78,12 @@ bool MinHeap::insert(min_heap_type x) {
 	heap_[size_] = x;
 	siftUp(size_);
 	size_++;
-	
+
 	return true;
 }
 
-bool MinHeap::remove(min_heap_type& x) {
+template <class E>
+bool MinHeap<E>::remove(E& x) {
 	if (size_ == 0) {
 		return false;
 	}
@@ -70,6 +92,8 @@ bool MinHeap::remove(min_heap_type& x) {
 	heap_[0] = heap_[size_ - 1];
 	size_--;
 	siftDown(0, size_ - 1);
-	
+
 	return true;
 }
+
+#endif MIN_HEAP_H

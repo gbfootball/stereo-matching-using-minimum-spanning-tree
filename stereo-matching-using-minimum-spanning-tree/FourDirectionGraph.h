@@ -5,7 +5,7 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
-#include "MinHeap.h"
+#include "MinHeap.hpp"
 #include "UnionFindSet.h"
 
 using namespace cv;
@@ -31,6 +31,14 @@ struct Edge {
 	pair<int, int> source;
 	pair<int, int> destination;
 	int weight;
+
+	bool operator>(const Edge e) const {
+		return weight > e.weight;
+	}
+
+	bool operator<(const Edge e) const {
+		return weight < e.weight;
+	}
 };
 
 struct TreeNode {

@@ -28,13 +28,9 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 
 	for (int i = 0; i < height_; i++) {
 		for (int j = 0; j < width_; j++) {
-			// to the left direction
 			graph_[i][j].weight[LEFT] = j != 0 ? ABS(graph_[i][j].data - graph_[i][j - 1].data) : NONE_WEIGHT;
-			// to the right direction
 			graph_[i][j].weight[RIGHT] = j != width_ - 1 ? ABS(graph_[i][j].data - graph_[i][j + 1].data) : NONE_WEIGHT;
-			// to the up direction
 			graph_[i][j].weight[UP] = i != 0 ? ABS(graph_[i][j].data - graph_[i + 1][j].data) : NONE_WEIGHT;
-			// to the down direction
 			graph_[i][j].weight[DOWN] = i != height_ - 1 ? ABS(graph_[i][j].data - graph_[i - 1][j].data) : NONE_WEIGHT;
 		}
 	}
@@ -44,10 +40,46 @@ void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(Tree& t) {
 	const int numVertex = getVerticesNumber();
 	const int numEdges = getEdgesNumber();
 
-	MinHeap heap(numEdges);
+	MinHeap<Edge> heap(numEdges);
 	UnionFindSet ufSet(numVertex);
 
+	for (int i = 0; i < height_; i++) {
+		for (int j = 0; j < width_; j++) {
+			Edge edge;
 
+			if (i != height_ - 1) {
+				edge.source = pair<int, int>(i, j);
+				edge.destination = pair<int, int>(i + 1, j);
+				edge.weight = graph_[i][j].weight[DOWN];
+				heap.insert(edge);
+			}
+
+			if (j != width_ - 1) {
+				edge.source = pair<int, int>(i, j);
+				edge.destination = pair<int, int>(i, j + 1);
+				edge.weight = graph_[i][j].weight[RIGHT];
+				heap.insert(edge);
+			}
+		}
+	}
+
+	// iterate n-1 times
+	for (int i = 1; i < numVertex; i++) {
+		Edge edge;
+		heap.remove(edge);
+
+		const pair<int, int> sourcePos = edge.source;
+		const pair<int, int> destPos = edge.destination;
+
+		const int u = ufSet.find(sourcePos.first * height_ + sourcePos.second);
+		const int v = ufSet.find(destPos.first * height_ + destPos.second);
+
+		// two vertex don't belong to one set which means disconnection
+		if (u != v) {
+			ufSet.weightedUnion(u, v);
+			
+		}
+	}
 }
 
 FourDirectionGraph::~FourDirectionGraph() {
