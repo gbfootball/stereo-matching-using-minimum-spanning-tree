@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -147,15 +147,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FourDirectionGrapEdge.h" />
     <ClInclude Include="FourDirectionGraph.h" />
-    <ClInclude Include="MinHeap.h" />
+    <ClInclude Include="FourDirectionGraphVertex.h" />
+    <ClInclude Include="MinHeap.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="MinimumSpanningTree.h" />
     <ClInclude Include="UnionFindSet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FourDirectionGraph.cpp" />
-    <ClCompile Include="MinHeap.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

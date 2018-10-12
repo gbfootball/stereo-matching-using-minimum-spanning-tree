@@ -1,26 +1,26 @@
 #ifndef MIN_HEAP_H
 #define MIN_HEAP_H
 
-template <class E>
+template <class Data>
 class MinHeap {
-	E* heap_;
+public:
+	explicit MinHeap(int size);
+	~MinHeap();
+	bool insert(Data x);
+	bool remove(Data& x);
+private:
+	Data* heap_;
 	int maxSize_;
 	int size_;
 
 	void siftDown(int start, int m) const;
 	void siftUp(int start) const;
-
-public:
-	explicit MinHeap(int size);
-	~MinHeap();
-	bool insert(E x);
-	bool remove(E& x);
 };
 
-template <class E>
-void MinHeap<E>::siftDown(const int start, const int m) const {
+template <class Data>
+void MinHeap<Data>::siftDown(const int start, const int m) const {
 	int i = start, j = 2 * i + 1; // j is the left child of i
-	const E temp = heap_[i];
+	const Data temp = heap_[i];
 
 	while (j <= m) {
 		if (j < m && heap_[j] > heap_[j + 1]) {
@@ -39,12 +39,12 @@ void MinHeap<E>::siftDown(const int start, const int m) const {
 	heap_[i] = temp;
 }
 
-template <class E>
-void MinHeap<E>::siftUp(const int start) const {
+template <class Data>
+void MinHeap<Data>::siftUp(const int start) const {
 	int j = start, i = (j - 1) / 2;
-	const E temp = heap_[j];
+	const Data temp = heap_[j];
 
-	while (j < 0) {
+	while (j > 0) {
 		if (heap_[i] <= temp) {
 			break;
 		}
@@ -57,20 +57,20 @@ void MinHeap<E>::siftUp(const int start) const {
 	heap_[j] = temp;
 }
 
-template <class E>
-MinHeap<E>::MinHeap(const int size) {
+template <class Data>
+MinHeap<Data>::MinHeap(const int size) {
 	maxSize_ = size;
-	heap_ = new E[maxSize_];
+	heap_ = new Data[maxSize_];
 	size_ = 0;
 }
 
-template <class E>
-MinHeap<E>::~MinHeap() {
+template <class Data>
+MinHeap<Data>::~MinHeap() {
 	delete heap_;
 }
 
-template <class E>
-bool MinHeap<E>::insert(E x) {
+template <class Data>
+bool MinHeap<Data>::insert(Data x) {
 	if (size_ == maxSize_) {
 		return false;
 	}
@@ -82,8 +82,8 @@ bool MinHeap<E>::insert(E x) {
 	return true;
 }
 
-template <class E>
-bool MinHeap<E>::remove(E& x) {
+template <class Data>
+bool MinHeap<Data>::remove(Data& x) {
 	if (size_ == 0) {
 		return false;
 	}

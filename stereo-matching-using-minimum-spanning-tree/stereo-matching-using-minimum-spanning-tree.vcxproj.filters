@@ -36,10 +36,19 @@
     <ClInclude Include="FourDirectionGraph.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHeap.h">
+    <ClInclude Include="UnionFindSet.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UnionFindSet.h">
+    <ClInclude Include="MinHeap.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FourDirectionGraphVertex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FourDirectionGrapEdge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimumSpanningTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,9 +60,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="FourDirectionGraph.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MinHeap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="UnionFindSet.cpp">
