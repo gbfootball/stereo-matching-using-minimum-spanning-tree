@@ -33,22 +33,22 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FourDirectionGraph.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UnionFindSet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MinHeap.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FourDirectionGraphVertex.h">
+    <ClInclude Include="FourDirectionGraphVertex.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FourDirectionGrapEdge.h">
+    <ClInclude Include="FourDirectionGraph.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinimumSpanningTree.h">
+    <ClInclude Include="FourDirectionGrapEdge.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionFindSet.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimumSpanningTree.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

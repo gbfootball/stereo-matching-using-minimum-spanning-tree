@@ -147,14 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FourDirectionGrapEdge.h" />
-    <ClInclude Include="FourDirectionGraph.h" />
-    <ClInclude Include="FourDirectionGraphVertex.h" />
+    <ClInclude Include="FourDirectionGrapEdge.hpp" />
+    <ClInclude Include="FourDirectionGraph.hpp" />
+    <ClInclude Include="FourDirectionGraphVertex.hpp" />
     <ClInclude Include="MinHeap.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="MinimumSpanningTree.h" />
-    <ClInclude Include="UnionFindSet.h" />
+    <ClInclude Include="MinimumSpanningTree.hpp" />
+    <ClInclude Include="UnionFindSet.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FourDirectionGraph.cpp" />

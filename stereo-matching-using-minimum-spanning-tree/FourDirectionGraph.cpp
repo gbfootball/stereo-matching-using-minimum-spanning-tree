@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "FourDirectionGraph.h"
-#include "UnionFindSet.h"
+#include "FourDirectionGraph.hpp"
+#include "UnionFindSet.hpp"
 #include "MinHeap.hpp"
 
 FourDirectionGraph::FourDirectionGraph(const Mat m) {
@@ -22,7 +22,7 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	}
 
 	/* 
-	 * Referece:
+	 * Reference:
 	 *     Based on the paper "A Non-Local Cost Aggregation Method for Stereo Matching", 
 	 *     the weight of a pair of neighboring pixels is absolute of value difference between two pixels.
 	 */
@@ -88,7 +88,7 @@ void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpannin
 	 *
 	 * Step:
 	 *     1. Get one edge with minimum weight by mim heap;
-	 *     2. Get the root indices of UFSets which conatins two vertices of the edge respectively;
+	 *     2. Get the root indices of UFSets which contains two vertices of the edge respectively;
 	 *     3. If the indices is not equivalent, two vertices of the edge don't belong to the same set which means two vertices is
 	 *        not connected. Then, we insert this edge into MST.
 	 *     4. If the indices is equivalent, two vertices of the edge is connected. Then we give up the edge.

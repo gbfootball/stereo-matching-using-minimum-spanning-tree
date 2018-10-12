@@ -5,10 +5,10 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
-#include "FourDirectionGraphVertex.h"
-#include "FourDirectionGrapEdge.h"
-#include "FourDirectionGraph.h"
-#include "MinimumSpanningTree.h"
+#include "FourDirectionGraphVertex.hpp"
+#include "FourDirectionGrapEdge.hpp"
+#include "FourDirectionGraph.hpp"
+#include "MinimumSpanningTree.hpp"
 
 using namespace cv;
 using namespace std;
@@ -27,4 +27,4 @@ public:
 	void getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpanningTree<FourDirectionGraphEdge<int>>& mst);
 };
 
-#endif FOUR_DIRECTION_GRAPH
+#endif

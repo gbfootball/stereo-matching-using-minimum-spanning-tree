@@ -8,8 +8,6 @@ using namespace std;
 template <class Weight>
 class FourDirectionGraphEdge {
 public:
-	static const int noneWeight = -1;
-
 	bool operator >(const FourDirectionGraphEdge& e) const;
 	bool operator <=(const FourDirectionGraphEdge& e) const;
 	pair<int, int> getSourcePos() const;
