@@ -36,4 +36,4 @@ void MinimumSpanningTree<EdgeType>::getEdgeVector(vector<EdgeType>& v) {
 	}
 }
 
-#endif
+#endif MINIMUM_SPANNING_TREE_H

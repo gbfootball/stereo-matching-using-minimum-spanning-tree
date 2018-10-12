@@ -27,4 +27,4 @@ public:
 	void getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpanningTree<FourDirectionGraphEdge<int>>& mst);
 };
 
-#endif
+#endif FOUR_DIRECTION_GRAPH

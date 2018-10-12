@@ -65,4 +65,4 @@ void FourDirectionGraphEdge<Weight>::setWeight(Weight w) {
 	weight_ = w;
 }
 
-#endif
+#endif FOUR_DIRECTION_GRAPH_EDGE_H

@@ -39,4 +39,4 @@ void FourDirectionGraphVertex<Data>::setData(Data d) {
 	data_ = d;
 }
 
-#endif
+#endif FOUR_DIRECTION_GRAPH_VERTEX_H
