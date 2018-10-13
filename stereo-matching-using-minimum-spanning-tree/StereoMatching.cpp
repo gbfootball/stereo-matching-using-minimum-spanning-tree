@@ -23,8 +23,7 @@ void StereoMatching::stereoMatchByMinimumSpanningTree(Mat& disparity, double& ti
 	fourDirectionGraph_.getMinimumSpanningTreeByKruskalAlgorithm(mst_);
 	buildTree();
 	aggregateCost();
-
-	cout << caluculateSimilarityBetweenNode(pair<int, int>(0, 0), pair<int, int>(0, 1)) << endl;
+	computeDisparity(disparity);
 
 	const clock_t end = clock();
 	time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
@@ -90,25 +89,24 @@ void StereoMatching::calculateMatchingCostSpace() {
 
 void StereoMatching::aggregateCost() {
 	leafToRootAggregateCost();
-
-
+	rootToLeafAggregationCost();
 }
 
 void StereoMatching::leafToRootAggregateCost() {
 	for (int i = 0; i < disparityNum; i++) {
 		TreeNode* p = tree_.getRoot();
-		leftToRootAggregatedCostSpace_[p->pos.first][p->pos.second][i] = caluculateLeafToRootAggregateCost(p, i);
+		leftToRootAggregatedCostSpace_[p->pos.first][p->pos.second][i] = calculateLeafToRootAggregateCost(p, i);
 	}
 }
 
-float StereoMatching::caluculateLeafToRootAggregateCost(TreeNode* pTreeNode, const int disparityLevel) {
+float StereoMatching::calculateLeafToRootAggregateCost(TreeNode* pTreeNode, const int disparityLevel) {
 	const pair<int, int> pos = pTreeNode->pos;
 	float leftToRootAggregatedCost = costSpace_[pos.first][pos.second][disparityLevel];
 
 	if (pTreeNode->vChildNode.size() != 0) {
 		for (vector<TreeNode*>::iterator iter = pTreeNode->vChildNode.begin(); iter != pTreeNode->vChildNode.end(); ++iter) {
-			const float similarity = caluculateSimilarityBetweenNode(pos, (*iter)->pos);
-			const float cost = caluculateLeafToRootAggregateCost(*iter, disparityLevel);
+			const float similarity = calculateSimilarityBetweenNode(pos, (*iter)->pos);
+			const float cost = calculateLeafToRootAggregateCost(*iter, disparityLevel);
 			leftToRootAggregatedCost += similarity * cost;
 		}
 	}
@@ -117,7 +115,43 @@ float StereoMatching::caluculateLeafToRootAggregateCost(TreeNode* pTreeNode, con
 	return leftToRootAggregatedCost;
 }
 
-float StereoMatching::caluculateSimilarityBetweenNode(const pair<int, int> pos1, const pair<int, int> pos2) const {
+void StereoMatching::rootToLeafAggregationCost() {
+	for (int i = 0; i < disparityNum; i++) {
+		queue<TreeNode*> qTreeNode;
+		TreeNode* p = tree_.getRoot();
+		float leftToRootAggregatedCost = leftToRootAggregatedCostSpace_[p->pos.first][p->pos.second][i];
+
+		aggregatedCostSpace_[p->pos.first][p->pos.second][i] = leftToRootAggregatedCost;
+
+		for (vector<TreeNode*>::iterator iter = p->vChildNode.begin(); iter != p->vChildNode.end(); ++iter) {
+			qTreeNode.push(*iter);
+		}
+
+		while (qTreeNode.size() > 0) {
+			p = qTreeNode.front();
+			qTreeNode.pop();
+
+			TreeNode* pParent = p->parentNode;
+			const pair<int, int> pos = p->pos;
+			const float similarity = calculateSimilarityBetweenNode(pParent->pos, pos);
+			const float parentAggregatedCost = aggregatedCostSpace_[pParent->pos.first][pParent->pos.second][i];
+			leftToRootAggregatedCost = leftToRootAggregatedCostSpace_[p->pos.first][p->pos.second][i];
+
+			aggregatedCostSpace_[p->pos.first][p->pos.second][i] =
+				similarity * parentAggregatedCost + (1 - similarity * similarity) * leftToRootAggregatedCost;
+
+			for (vector<TreeNode*>::iterator iter = p->vChildNode.begin(); iter != p->vChildNode.end(); ++iter) {
+				qTreeNode.push(*iter);
+			}
+		}
+	}
+}
+
+void StereoMatching::computeDisparity(Mat& disparity) {
+
+}
+
+float StereoMatching::calculateSimilarityBetweenNode(const pair<int, int> pos1, const pair<int, int> pos2) const {
 	vector<FourDirectionGraphEdge> vEdges = mst_.getTreeEdgeArray();
 	for (vector<FourDirectionGraphEdge>::iterator iter = vEdges.begin(); iter != vEdges.end(); ++iter) {
 		const pair<int, int> sp = iter->getSourcePos();

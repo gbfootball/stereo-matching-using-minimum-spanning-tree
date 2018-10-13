@@ -6,8 +6,9 @@
 
 #include "MinimumSpanningTree.hpp"
 #include "FourDirectionGraph.hpp"
-#include "Tree.h"
+#include "Tree.hpp"
 
+struct TreeNode;
 using namespace std;
 using namespace cv;
 
@@ -21,8 +22,6 @@ public:
 	void stereoMatchByMinimumSpanningTree(Mat& disparity, double& time);
 
 private:
-
-
 	Mat leftImage_;
 	Mat rightImage_;
 	Size imageSize_;
@@ -37,9 +36,11 @@ private:
 	void calculateMatchingCostSpace();
 	void aggregateCost();
 	void leafToRootAggregateCost();
-	float caluculateLeafToRootAggregateCost(TreeNode* pTreeNode);
+	float calculateLeafToRootAggregateCost(TreeNode* pTreeNode, int disparityLevel);
 	void rootToLeafAggregationCost();
-	float caluculateSimilarityBetweenNode(pair<int, int> pos1, pair<int, int> pos2) const;
+	void computeDisparity(Mat& disparity);
+
+	float calculateSimilarityBetweenNode(pair<int, int> pos1, pair<int, int> pos2) const;
 	void buildTree();
 };
 

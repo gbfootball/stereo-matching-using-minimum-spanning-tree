@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Tree.h"
+#include "Tree.hpp"
 
 Tree::Tree(): root_(NULL) {
 }
