@@ -1,39 +1,23 @@
-#ifndef MINIMUM_SPANNING_TREE_H
-#define MINIMUM_SPANNING_TREE_H
+#ifndef MINIMUM_SPANNING_TREE_HPP
+#define MINIMUM_SPANNING_TREE_HPP
 
-#include <iostream>
 #include <vector>
+#include <opencv2/opencv.hpp>
+
+#include "FourDirectionGraphEdge.hpp"
 
 using namespace std;
 
-template <class EdgeType>
 class MinimumSpanningTree {
 public:
-	void addEdge(EdgeType et);
+	void addEdge(FourDirectionGraphEdge e);
 	int getSize() const;
-	void getEdgeVector(vector<EdgeType>& v);
+	pair<int, int> findMinHeightTreeRootNodePos();
+	vector<FourDirectionGraphEdge> getTreeEdgeArray() const;
 
 private:
-	vector<EdgeType> treeEdgeArray_;
+	vector<FourDirectionGraphEdge> treeEdgeArray_;
 	int counter_ = 0;
 };
 
-template <class EdgeType>
-void MinimumSpanningTree<EdgeType>::addEdge(EdgeType et) {
-	treeEdgeArray_.push_back(et);
-	counter_++;
-}
-
-template <class EdgeType>
-int MinimumSpanningTree<EdgeType>::getSize() const {
-	return counter_;
-}
-
-template <class EdgeType>
-void MinimumSpanningTree<EdgeType>::getEdgeVector(vector<EdgeType>& v) {
-	for (typename vector<EdgeType>::iterator iter = treeEdgeArray_.begin(); iter != treeEdgeArray_.end(); ++iter) {
-		v.push_back(*iter);
-	}
-}
-
-#endif MINIMUM_SPANNING_TREE_H
+#endif MINIMUM_SPANNING_TREE_HPP

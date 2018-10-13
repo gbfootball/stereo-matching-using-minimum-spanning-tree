@@ -1,5 +1,5 @@
-#ifndef MIN_HEAP_H
-#define MIN_HEAP_H
+#ifndef MIN_HEAP_HPP
+#define MIN_HEAP_HPP
 
 template <class Data>
 class MinHeap {
@@ -131,4 +131,4 @@ bool MinHeap<Data>::remove(Data& x) {
 	return true;
 }
 
-#endif MIN_HEAP_H
+#endif MIN_HEAP_HPP

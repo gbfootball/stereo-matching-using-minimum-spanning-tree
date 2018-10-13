@@ -1,42 +1,22 @@
-﻿#ifndef FOUR_DIRECTION_GRAPH_VERTEX_H
-#define FOUR_DIRECTION_GRAPH_VERTEX_H
+﻿#ifndef FOUR_DIRECTION_GRAPH_VERTEX_HPP
+#define FOUR_DIRECTION_GRAPH_VERTEX_HPP
 
-#include <iostream>
+#include <opencv2/opencv.hpp>
 
 using namespace std;
 
-template <class Data>
+typedef uchar data_t;
+
 class FourDirectionGraphVertex {
 public:
 	pair<int, int> getPosition() const;
-	Data getData();
+	data_t getData() const;
 	void setPosition(int row, int col);
-	void setData(Data d);
+	void setData(data_t d);
 
 private:
 	pair<int, int> pos_;
-	Data data_;
+	data_t data_ = 0;
 };
 
-template <class Data>
-pair<int, int> FourDirectionGraphVertex<Data>::getPosition() const {
-	return pos_;
-}
-
-template <class Data>
-Data FourDirectionGraphVertex<Data>::getData() {
-	return data_;
-}
-
-template <class Data>
-void FourDirectionGraphVertex<Data>::setPosition(const int row, const int col) {
-	pos_.first = row;
-	pos_.second = col;
-}
-
-template <class Data>
-void FourDirectionGraphVertex<Data>::setData(Data d) {
-	data_ = d;
-}
-
-#endif FOUR_DIRECTION_GRAPH_VERTEX_H
+#endif FOUR_DIRECTION_GRAPH_VERTEX_HPP

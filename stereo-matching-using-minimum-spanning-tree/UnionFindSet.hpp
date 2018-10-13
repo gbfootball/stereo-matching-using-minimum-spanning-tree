@@ -1,5 +1,5 @@
-#ifndef UNION_FIND_SET
-#define UNION_FIND_SET
+#ifndef UNION_FIND_SET_HPP
+#define UNION_FIND_SET_HPP
 
 class UnionFindSet {
 	int* parent_;
@@ -12,4 +12,4 @@ public:
 	void weightedUnion(int root1, int root2) const;
 };
 
-#endif UNION_FIND_SET
+#endif UNION_FIND_SET_HPP

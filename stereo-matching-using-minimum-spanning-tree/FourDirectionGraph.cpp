@@ -3,6 +3,9 @@
 #include "UnionFindSet.hpp"
 #include "MinHeap.hpp"
 
+FourDirectionGraph::FourDirectionGraph(): height_(0), width_(0), numVertex_(0), numEdge_(0) {
+}
+
 FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	height_ = m.rows;
 	width_ = m.cols;
@@ -11,7 +14,7 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	numEdge_ = (height_ - 1) * width_ + (width_ - 1) * height_;
 
 	for (int i = 0; i < numVertex_; i++) {
-		FourDirectionGraphVertex<uchar> v;
+		FourDirectionGraphVertex v;
 		const int row = i / width_;
 		const int col = i % width_;
 
@@ -42,7 +45,7 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	 * And the destination vertex is the right position of source vertex for "row edge" while the down position for "col edge".
 	 */
 	for (int i = 0; i < numRowEdge; i++) {
-		FourDirectionGraphEdge<int> e;
+		FourDirectionGraphEdge e;
 		const int row = i / (width_ - 1);
 		const int col = i % (width_ - 1);
 		const uchar sourceData = vertexArray_[row * width_ + col].getData();
@@ -56,7 +59,7 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	}
 
 	for (int i = 0; i < numColEdge; i++) {
-		FourDirectionGraphEdge<int> e;
+		FourDirectionGraphEdge e;
 		const int row = i / width_;
 		const int col = i % width_;
 		const uchar sourceData = vertexArray_[row * width_ + col].getData();
@@ -70,17 +73,17 @@ FourDirectionGraph::FourDirectionGraph(const Mat m) {
 	}
 }
 
-void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpanningTree<FourDirectionGraphEdge<int>>& mst) {
-	MinHeap<FourDirectionGraphEdge<int>> heap(numEdge_);
+void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpanningTree& mst) {
+	MinHeap<FourDirectionGraphEdge> heap(numEdge_);
 	UnionFindSet ufSet(numVertex_);
 
 	// add all the edges into min heap
-	for (vector<FourDirectionGraphEdge<int>>::iterator iter = edgeRowArray_.begin(); iter != edgeRowArray_.end(); ++iter) {
-		heap.insert(FourDirectionGraphEdge<int>(*iter));
+	for (vector<FourDirectionGraphEdge>::iterator iter = edgeRowArray_.begin(); iter != edgeRowArray_.end(); ++iter) {
+		heap.insert(FourDirectionGraphEdge(*iter));
 	}
 
-	for (vector<FourDirectionGraphEdge<int>>::iterator iter = edgeColArray_.begin(); iter != edgeColArray_.end(); ++iter) {
-		heap.insert(FourDirectionGraphEdge<int>(*iter));
+	for (vector<FourDirectionGraphEdge>::iterator iter = edgeColArray_.begin(); iter != edgeColArray_.end(); ++iter) {
+		heap.insert(FourDirectionGraphEdge(*iter));
 	}
 
 	/*
@@ -95,7 +98,7 @@ void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpannin
 	 */
 	int count = 1;
 	while (count < numVertex_) {
-		FourDirectionGraphEdge<int> edge;
+		FourDirectionGraphEdge edge;
 		heap.remove(edge);
 
 		const pair<int, int> sourcePos = edge.getSourcePos();
@@ -110,4 +113,8 @@ void FourDirectionGraph::getMinimumSpanningTreeByKruskalAlgorithm(MinimumSpannin
 			count++;
 		}
 	}
+}
+
+FourDirectionGraphVertex FourDirectionGraph::getVertex(const int row, const int col) {
+	return vertexArray_[row * width_ + col];
 }

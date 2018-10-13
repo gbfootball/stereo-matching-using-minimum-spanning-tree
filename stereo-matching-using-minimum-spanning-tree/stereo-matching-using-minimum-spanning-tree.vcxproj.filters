@@ -42,13 +42,22 @@
     <ClInclude Include="FourDirectionGraph.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FourDirectionGrapEdge.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="UnionFindSet.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MinimumSpanningTree.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StereoMatching.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FourDirectionGraphEdge.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDataset.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -63,6 +72,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="UnionFindSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StereoMatching.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FourDirectionGraphEdge.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FourDirectionGraphVertex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDataset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MinimumSpanningTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

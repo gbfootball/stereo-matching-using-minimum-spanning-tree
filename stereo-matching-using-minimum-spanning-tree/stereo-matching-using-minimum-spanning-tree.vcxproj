@@ -147,17 +147,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FourDirectionGrapEdge.hpp" />
+    <ClInclude Include="FourDirectionGraphEdge.hpp" />
     <ClInclude Include="FourDirectionGraph.hpp" />
     <ClInclude Include="FourDirectionGraphVertex.hpp" />
     <ClInclude Include="MinHeap.hpp" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StereoMatching.hpp" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="MinimumSpanningTree.hpp" />
+    <ClInclude Include="TestDataset.hpp" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="UnionFindSet.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FourDirectionGraph.cpp" />
+    <ClCompile Include="FourDirectionGraphEdge.cpp" />
+    <ClCompile Include="FourDirectionGraphVertex.cpp" />
+    <ClCompile Include="MinimumSpanningTree.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -165,6 +171,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="stereo-matching-using-minimum-spanning-tree.cpp" />
+    <ClCompile Include="StereoMatching.cpp" />
+    <ClCompile Include="TestDataset.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="UnionFindSet.cpp" />
   </ItemGroup>
   <ItemGroup>
